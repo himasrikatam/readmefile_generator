@@ -17,6 +17,12 @@ if st.button("Generate README"):
                 readme_content = generate_readme(repo_summary)
                 st.subheader("Generated README")
                 st.text_area("README Content", readme_content, height=400)
+                st.download_button(
+                        label="📥 Download Read Me File",
+                        data=  readme_content,
+                        file_name="README.md",
+                        mime="text/plain"
+                     )
             except Exception as e:
                 st.error(f"Error: {e}")
     else:
