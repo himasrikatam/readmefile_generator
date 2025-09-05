@@ -1,0 +1,8 @@
+.env
+
+pyvenv.cfg
+etc
+Include
+share
+Lib
+Scripts
