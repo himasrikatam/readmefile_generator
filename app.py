@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify
 from services.github_loader import fetch_repo_summary
 from services.readme_agent import generate_readme
-
+from flask_cors import CORS
 app = Flask(__name__)
 
 @app.route("/generate-readme", methods=["POST"])
@@ -24,6 +24,6 @@ def generate_readme_endpoint():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
-
+CORS(app)
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, port=5125)
